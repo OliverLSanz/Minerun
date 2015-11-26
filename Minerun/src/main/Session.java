@@ -34,7 +34,6 @@ public class Session {
 		try {
 			db.createStatement().execute(querry);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -43,7 +42,6 @@ public class Session {
 		try {
 			return db.createStatement().executeQuery(querry);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
