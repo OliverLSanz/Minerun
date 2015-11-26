@@ -1,24 +1,33 @@
 package main;
 
-import telegramBot.*;
+import telegramBotApi.*;
 import java.sql.*;
+import java.util.ArrayList;
+
+import contexts.*;
 
 public class Session {
-	private int state;
+	private TelegramBot bot;
 	private TelegramChat user;
 	private Connection db;
+	private Context context;
 	
-	public Session(TelegramChat user, Connection db){
-		state = 0;
+	public Session(TelegramBot bot, TelegramChat user, Connection db){
+		this.bot = bot;
 		this.user = user;
 		this.db = db;
 		if(!userExistsInDb()){
 			dbExecute("INSERT INTO mineral (user_id) VALUES ("+ user.getId() +");");
 		}
+		context = new BaseStation();
 	}
 	
 	public void process(TelegramMsg msg){
-		// According to the msg and/or state, commit the appropriate actions
+		ArrayList<TelegramSMsg> smsgs;
+		
+		context.process(msg);
+		if((smsgs = context.messagesToSend()) != null)
+			bot.sendMessages(smsgs);
 	}
 	
 	private void dbExecute(String querry){

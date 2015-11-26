@@ -1,11 +1,7 @@
 package contexts;
 
-public class BaseStation implements Dockable {
+import telegramBotApi.TelegramMsg;
 
-	@Override
-	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+public class BaseStation extends Dockable {
 
 }

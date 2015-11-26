@@ -1,5 +1,5 @@
 package contexts;
 
-public interface Dockable extends Context {
+public abstract class Dockable extends Context {
 
 }

@@ -1,7 +1,7 @@
 package main;
 
 import java.util.HashMap;
-import telegramBot.*;
+import telegramBotApi.*;
 import java.sql.*;
 
 public class Minerun {
@@ -17,10 +17,10 @@ public class Minerun {
 			TelegramMsg msg;
 
 			while (true) {
-				while ((msg = bot.nextMsg(0)) == null)
-					;
+				while ((msg = bot.nextMsg(0)) == null);
 				if (!currentSessions.containsKey(msg.getChat().getId())) {
-					currentSessions.put(msg.getChat().getId(), new Session(msg.getChat(), connection));
+					currentSessions.put(msg.getChat().getId(), 
+							new Session(bot, msg.getChat(), connection));
 				}
 				currentSessions.get(msg.getChat().getId()).process(msg);
 			}

@@ -1,13 +1,13 @@
 package contexts;
 
-public interface SpaceSector extends Context {
+public abstract class SpaceSector extends Context {
 	/**
 	 * When the sector is scanned, some mineral can be made visible.
 	 * It returns the quantity of minerals apparently made visible.
 	 * 
 	 * @return the minerals made visible by scanning the sector.
 	 */
-	int scan();
+	abstract int scan();
 
 	/**
 	 * The sector is tried to be mined, and it returns the amount of
@@ -15,7 +15,7 @@ public interface SpaceSector extends Context {
 	 * 
 	 * @return the minerals successfully mined.
 	 */
-	int mine();
+	abstract int mine();
 	
 	/**
 	 * Returns true if the sector can be mined, false otherwise.
@@ -23,5 +23,5 @@ public interface SpaceSector extends Context {
 	 * @return 	{@code true} if the sector can be mined.
 	 * 			{@code false} otherwise.
 	 */
-	boolean isMinable();
+	abstract boolean isMinable();
 }
