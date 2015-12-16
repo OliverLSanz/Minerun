@@ -9,9 +9,9 @@ public class Minerun {
 	public static void main(String[] args) {
 		try {
 			final String URL = "", USER = "", PASS = "";
-			Connection connection = DriverManager.getConnection(URL, USER, PASS);
-
 			final String BOTID = "";
+
+			Connection connection = DriverManager.getConnection(URL, USER, PASS);
 			TelegramBot bot = new TelegramBot(BOTID);
 			HashMap<Integer, Session> currentSessions = new HashMap<Integer, Session>();
 			TelegramMsg msg;

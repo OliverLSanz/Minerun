@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import telegramBotApi.*;
 
 public abstract class Context {
+	ArrayList<TelegramSMsg> messagesToSend;
+	
 	/**
 	 * Returns a descriptive name for the context.
 	 * 
@@ -40,6 +42,6 @@ public abstract class Context {
 	 * 			{@code null} if there is none.
 	 */
 	public ArrayList<TelegramSMsg> messagesToSend(){
-		return null;
+		return messagesToSend;
 	}
 }
